@@ -19,12 +19,12 @@ $(() => {
 
     socketio.on('gameOn', board => {
         if (board[one] === 'p1') {
-            $('#gameMessage').text('Your are player 1 and your color is blue')
+            $('#gameMessage').text('You are player 1 and your color is blue')
             $('#gameMessage').append('<br>')
             $('#gameMessage').append('Make your move...')
             $('#gameMessage').css('color', 'blue')
         } else if (board[one] === 'p2') {
-            $('#gameMessage').text('Your are player 2 and your color is purple')
+            $('#gameMessage').text('You are player 2 and your color is purple')
             $('#gameMessage').append('<br>')
             $('#gameMessage').append('Blue is making the move...')
             $('#gameMessage').css('color', 'purple')
