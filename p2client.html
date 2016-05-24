@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script src="/p2client.js"></script>
+	<style>
+		button { height: 50px; width: 50px; font-size: 20pt }
+		.black { background-color: grey; }
+		.white { background-color: white; }
+        .blue { background: url('https://www.myfootballplays.com/myfpn/images/circles/blue-circle.png')}
+        .purple { background: url('https://www.myfootballplays.com/myfpn/images/circles/purple-circle.png')}
+	</style>
+    <script>
+        function makeBoard() {
+        	for(let r=0;r<8;r++) {
+        		let row = $("<tr>");
+        		for(let c=0;c<8;c++) {
+                    let i = r*8+c
+        			if(((r+c)%2)===0) {
+        				// row.append( ("<td><button id=m"+r+""+c+" class=black onclick=move("+r+","+c+")></button>"+r+","+c+" "+i+"</td>") )
+                        row.append( ("<td><button id=m"+r+""+c+" class=black onclick=move("+r+","+c+")></button></td>") )
+        			} else {
+        				// row.append( ("<td><button id=m"+r+""+c+" class=white onclick=move("+r+","+c+")></button>"+r+","+c+" "+i+"</td>") )
+                        row.append( ("<td><button id=m"+r+""+c+" class=white onclick=move("+r+","+c+")></button></td>") )
+        			}
+        		}
+        		$("#boardTable").append(row);
+        	}
+        }
+    </script>
+</head>
+<body>
+    <p id="Scoring"></p>
+    <p id="GameEndMessage"></p>
+    <p id="gameMessage"></p>
+    <hr>
+	<div id='boardDiv'>
+		<table id='boardTable'>
+		</table>
+        <script> makeBoard() </script>
+	</div>
+</body>
+</html>
